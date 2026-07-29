@@ -1,4 +1,4 @@
-## 🚀 Live Demo
+##  Live Demo
 
 [Launch the Enterprise Knowledge Orchestrator](https://enterprise-orchestrator-mcp-rz3hd3jvxeumfm2dw7yxuv.streamlit.app)
 
