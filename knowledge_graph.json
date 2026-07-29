@@ -1,0 +1,34 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {"id": "auth_refactor", "type": "decision", "name": "Auth Refactor"},
+    {"id": "alice", "type": "person", "name": "Alice Chen"},
+    {"id": "bob", "type": "person", "name": "Bob Martinez"},
+    {"id": "carol", "type": "person", "name": "Carol Wu"},
+    {"id": "david", "type": "person", "name": "David Kim"},
+    {"id": "eve", "type": "person", "name": "Eve Nakamura"},
+    {"id": "pr_42", "type": "pr", "name": "PR #42"},
+    {"id": "pr_51", "type": "pr", "name": "PR #51"},
+    {"id": "pr_48", "type": "pr", "name": "PR #48"},
+    {"id": "adr_002", "type": "decision", "name": "ADR-002 OAuth Provider"},
+    {"id": "api_v2", "type": "project", "name": "API v2 Redesign"},
+    {"id": "auth_service", "type": "project", "name": "auth-service"}
+  ],
+  "edges": [
+    {"source": "auth_refactor", "target": "alice", "type": "decided_by"},
+    {"source": "auth_refactor", "target": "bob", "type": "assigned_to"},
+    {"source": "auth_refactor", "target": "carol", "type": "relates_to"},
+    {"source": "bob", "target": "pr_42", "type": "author_of"},
+    {"source": "bob", "target": "pr_51", "type": "author_of"},
+    {"source": "david", "target": "pr_48", "type": "author_of"},
+    {"source": "pr_51", "target": "auth_refactor", "type": "blocks"},
+    {"source": "adr_002", "target": "pr_42", "type": "blocks"},
+    {"source": "alice", "target": "adr_002", "type": "author_of"},
+    {"source": "api_v2", "target": "auth_refactor", "type": "blocks"},
+    {"source": "auth_service", "target": "auth_refactor", "type": "relates_to"},
+    {"source": "carol", "target": "pr_51", "type": "assigned_to"},
+    {"source": "eve", "target": "api_v2", "type": "assigned_to"}
+  ]
+}
