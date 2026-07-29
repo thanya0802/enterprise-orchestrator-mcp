@@ -1,3 +1,7 @@
+## 🚀 Live Demo
+
+[Launch the Enterprise Knowledge Orchestrator](https://enterprise-orchestrator-mcp-rz3hd3jvxeumfm2dw7yxuv.streamlit.app)
+
 # Enterprise Knowledge Orchestrator
 
 > Ask natural language questions across your enterprise tools — docs, GitHub, PDFs — and get synthesized answers with citations powered by a knowledge graph.
