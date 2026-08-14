@@ -91,9 +91,10 @@ GITHUB_TOKEN=xxx GITHUB_REPO=owner/repo npx @modelcontextprotocol/inspector uv r
 ## Example Queries
 
 - "What decisions were made about the auth refactor last month?"
-- "Who is responsible for PR #51 and what's blocking it?"
-- "Summarize the architecture decisions and flag any that conflict with open PRs"
+- "What does the security review say is blocking PR #51?" (tests grounding against the seeded sample docs — PR #51 is fictional demo data, not a real PR on the configured `GITHUB_REPO`)
+- "Summarize the architecture decisions and flag any that conflict with open PRs" (cross-references docs with whatever is actually open on the configured `GITHUB_REPO`)
 - "Who made the decision about the auth refactor, and what PRs are they working on?"
+- "What are the open issues right now?" (live GitHub data — reflects the real repo, not the sample docs)
 
 ## Project Structure
 
@@ -148,6 +149,7 @@ uv run python graph_rag/ingest.py
 - Roadmap: Confluence and Google Drive MCP servers (Phase 2), Presidio-based PII detection (Phase 2), Neo4j AuraDB backing for the knowledge graph at production scale (Phase 3) — NetworkX is the right choice for this demo's data volume but doesn't horizontally scale
 - Test coverage focuses on the knowledge graph and governance modules plus MCP client failure handling; end-to-end agent orchestration is validated manually via the demo link above rather than in CI, since it requires a live Gemini API key
 - `GEMINI_MODEL` defaults to a specific model string (currently `gemini-3.6-flash`) rather than a rolling alias like `gemini-flash-latest` — Google has a multi-cutover deprecation cadence (2.0 → 2.5 → 3.x flash generations shipped within the same year), so this default will need bumping periodically. Override via the `GEMINI_MODEL` env var without touching code.
+- The sample docs (auth refactor, PR numbers, engineering syncs) are self-contained fictional demo data, unrelated to whatever real repo is configured via `GITHUB_REPO`. Questions referencing specific PR numbers from the docs (e.g. PR #51) won't resolve against live GitHub — that's the retrieval correctly refusing to hallucinate a match, not a bug. Questions about live repo state ("what are the open issues right now") query the real, separate `GITHUB_REPO`.
 
 ## License
 
